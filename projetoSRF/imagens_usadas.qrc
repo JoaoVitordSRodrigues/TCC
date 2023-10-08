@@ -1,0 +1,23 @@
+<RCC>
+  <qresource prefix="imagens">
+    <file>imagens/imgAluno.png</file>
+    <file>imagens/imgAlunoBranco.png</file>
+    <file>imagens/imgAlunoVerde.png</file>
+    <file>imagens/imgBtnAluno.png</file>
+    <file>imagens/imgBtnAtualizar.png</file>
+    <file>imagens/imgBtnCadastrar.png</file>
+    <file>imagens/imgBtnDeletar.png</file>
+    <file>imagens/imgBtnDesconectar.png</file>
+    <file>imagens/imgBtnEntrada.png</file>
+    <file>imagens/imgBtnHome.png</file>
+    <file>imagens/imgBtnLimpar.png</file>
+    <file>imagens/imgBtnMenu.png</file>
+    <file>imagens/imgBtnPesquisar.png</file>
+    <file>imagens/imgBtnRFacial.png</file>
+    <file>imagens/imgBtnVoltar.png</file>
+    <file>imagens/imgLogo.png</file>
+    <file>imagens/imgNomeLogo.png</file>
+    <file>imagens/imgPagAlunos.png</file>
+    <file>imagens/imgPesquisar.png</file>
+  </qresource>
+</RCC>
