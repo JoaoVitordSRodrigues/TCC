@@ -70,17 +70,8 @@ class TelasDiretor(QMainWindow):
         self.ui.btnCarregarFT_PgCadastro.clicked.connect(self.carregar_imagem)
         #botao que ira cadastrar aluno
         self.ui.btnCadastrarAluno_PgCadastro.clicked.connect(self.cadastrarAluno)
-        #==================================================================
 
-
-
-        #==================================================================
-        #===================CONFIG PARA DELETAR ALUNO======================
-        #==================================================================
-        self.ui.btnDeletarAluno_PgAtualizar_2.clicked.connect(self.deletarAluno)
-
-
-        #setando os valores da combobox 'periodo' 
+         #setando os valores da combobox 'periodo' 
         self.ui.cboxPeriodo_PgCadastro.addItem("Selecione o período do aluno")
         self.ui.cboxPeriodo_PgCadastro.addItem("Manhã")
         self.ui.cboxPeriodo_PgCadastro.addItem("Tarde")
@@ -101,6 +92,14 @@ class TelasDiretor(QMainWindow):
 
         self.ui.cboxPeriodo_PgCadastro.currentIndexChanged.connect(self.exibirCursosPorPeriodo)
         self.exibirCursosPorPeriodo()  # Inicialmente, exibe todos os cursos
+        #==================================================================
+
+
+
+        #==================================================================
+        #===================CONFIG PARA DELETAR ALUNO======================
+        #==================================================================
+        self.ui.btnDeletarAluno_PgAtualizar_2.clicked.connect(self.deletarAluno)
         #==================================================================
 
 
@@ -429,24 +428,6 @@ class TelasDiretor(QMainWindow):
         BancoTcc.conn.commit()
         messagebox.showinfo(title="Atualização do Aluno", message="Aluno atualizado com Sucesso!!")
 
-
-    #=================================================
-    #===========FUNCAO PARA DELETAR ALUNO=============
-    #=================================================  
-    def deletarAluno(self):
-        nome = self.ui.etyNome_PgCadastro.text()
-        rm = self.ui.etyRM_PgCadastro.text()
-        checbox_periodo = self.ui.cboxPeriodo_PgCadastro.currentText()
-        checkbox_curso = self.ui.cboxCurso_PgCadastro.currentText()
-        checkbox_turma = self.ui.cboxTurma_PgCadastro.currentText()
-        fotoAlu = self.ui.btnCarregarFT_PgCadastro.isChecked()
-
-        BancoTcc.cursor.execute("""
-        DELETE FROM cadastroAlu WHERE nome=?, rm=?, checbox_periodo=?, checkbox_curso=?, checkbox_turma=?, fotoAlu=?
-        """, (nome, rm, checbox_periodo, checkbox_curso, checkbox_turma, fotoAlu,))
-        BancoTcc.conn.commit()
-        messagebox.showinfo(title="Exclusão do Aluno", message="Aluno excluido com Sucesso!!")
-
     #funcao que ira exibir os cursos de acordo com o periodo selecionado
     def exibirCursosPorPeriodo_PgAtualizar(self):
         #varivel contendo os curso existentes por periodo
@@ -483,6 +464,25 @@ class TelasDiretor(QMainWindow):
             pixmap = pixmap.scaled(200, 210)
             #setando imagem na label da imagem
             self.ui.lbl_ImgAluno_PgAtualizar.setPixmap(pixmap)
+    #=================================================
+    #=================================================
+
+    #=================================================
+    #===========FUNCAO PARA DELETAR ALUNO=============
+    #=================================================  
+    def deletarAluno(self):
+        nome = self.ui.etyNome_PgCadastro.text()
+        rm = self.ui.etyRM_PgCadastro.text()
+        checbox_periodo = self.ui.cboxPeriodo_PgCadastro.currentText()
+        checkbox_curso = self.ui.cboxCurso_PgCadastro.currentText()
+        checkbox_turma = self.ui.cboxTurma_PgCadastro.currentText()
+        fotoAlu = self.ui.btnCarregarFT_PgCadastro.isChecked()
+
+        BancoTcc.cursor.execute("""
+        DELETE FROM cadastroAlu WHERE nome=?, rm=?, checbox_periodo=?, checkbox_curso=?, checkbox_turma=?, fotoAlu=?
+        """, (nome, rm, checbox_periodo, checkbox_curso, checkbox_turma, fotoAlu,))
+        BancoTcc.conn.commit()
+        messagebox.showinfo(title="Exclusão do Aluno", message="Aluno excluido com Sucesso!!")
     #=================================================
     #=================================================
 
